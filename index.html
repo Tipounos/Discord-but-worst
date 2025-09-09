@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord like</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="chat-app">
+      <div class="user-info">
+        <input type="text" id="username" placeholder="Your username" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password (for admins only)"
+        />
+      </div>
+      <label style="display: block; margin-top: 5px">
+        <input type="checkbox" id="remember-me" checked />
+        Remember me
+      </label>
+      <button onclick="logout()">Se déconnecter</button>
+
+      <button id="toggle-users-btn">👥 See the online users</button>
+
+      <div id="users-popup" class="hidden">
+        <div class="popup-content">
+          <h3>🟢 Online users</h3>
+          <ul id="online-users-list"></ul>
+        </div>
+      </div>
+
+      <div class="messages" id="messages"></div>
+
+      <form id="chat-form" class="chat-form">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Write your text"
+          autocomplete="off"
+          required
+        />
+
+        <button type="submit" id="send">Send</button>
+      </form>
+
+      <input type="file" id="image-input" />
+    </div>
+
+    <div
+      id="lightbox"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      "
+    >
+      <img
+        id="lightbox-img"
+        src=""
+        style="max-width: 90%; max-height: 90%; border-radius: 8px"
+      />
+    </div>
+
+    <!-- Ton script principal avec Firebase + Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
